@@ -1,0 +1,22 @@
+name: Metrics
+on:
+  # Запуск ежедневно в 00:00 UTC
+  schedule: [{cron: "0 0 * * *"}]
+  # Возможность запуска вручную
+  workflow_dispatch:
+  # Запуск при пуше в ветки master/main
+  push: {branches: ["master", "main"]}
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.isocalendar.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_isocalendar: yes
