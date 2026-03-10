@@ -27,7 +27,7 @@ jobs:
           # Options
           user: DemonDED
           template: classic
-          base: header, activity, community, repositories, metadata
+          base: header, metadata
           config_timezone: Asia/Novosibirsk
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
